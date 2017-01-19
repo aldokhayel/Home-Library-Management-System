@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.0.10deb1
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: May 04, 2016 at 03:17 PM
+- Server version: 5.5.47-0ubuntu0.14.04.1
+- PHP Version: 5.5.9-1ubuntu4.14
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="project" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="books">
+                CREATE TABLE `books` (
+                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `book_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `book_author` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `book_owner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `library_name` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+                  `borrow` tinyint(1) NOT NULL,
+                  `created_at` timestamp NULL DEFAULT NULL,
+                  `updated_at` timestamp NULL DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="libraries">
+                CREATE TABLE `libraries` (
+                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `owner_username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `request` tinyint(1) NOT NULL DEFAULT '0',
+                  `created_at` timestamp NULL DEFAULT NULL,
+                  `updated_at` timestamp NULL DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="memberships">
+                CREATE TABLE `memberships` (
+                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `library_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `owner_username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `friend` tinyint(1) NOT NULL,
+                  `created_at` timestamp NULL DEFAULT NULL,
+                  `updated_at` timestamp NULL DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="migrations">
+                CREATE TABLE `migrations` (
+                  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `batch` int(11) NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="password_resets">
+                CREATE TABLE `password_resets` (
+                  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                  KEY `password_resets_email_index` (`email`),
+                  KEY `password_resets_token_index` (`token`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `date` date NOT NULL,
+                  `gender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+                  `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+                  `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+                  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+                  `created_at` timestamp NULL DEFAULT NULL,
+                  `updated_at` timestamp NULL DEFAULT NULL,
+                  PRIMARY KEY (`id`,`username`),
+                  UNIQUE KEY `email` (`email`,`username`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'project'
+    -->
+    <database name="project">
+        <!-- Table books -->
+        <table name="books">
+            <column name="id">5</column>
+            <column name="book_title">Nasser Book 1</column>
+            <column name="book_author">Nasser Book 1</column>
+            <column name="book_owner">Nasser</column>
+            <column name="library_name">Nasser Libr</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 06:31:49</column>
+            <column name="updated_at">2016-05-03 06:31:49</column>
+        </table>
+        <table name="books">
+            <column name="id">6</column>
+            <column name="book_title">Nasser Book 2</column>
+            <column name="book_author">Nasser Book 2</column>
+            <column name="book_owner">Nasser</column>
+            <column name="library_name">Nasser Libr</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 06:31:55</column>
+            <column name="updated_at">2016-05-03 06:31:55</column>
+        </table>
+        <table name="books">
+            <column name="id">7</column>
+            <column name="book_title">Nasser Book 3</column>
+            <column name="book_author">Nasser Book 3</column>
+            <column name="book_owner">Nasser</column>
+            <column name="library_name">Nasser Libr</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 06:32:02</column>
+            <column name="updated_at">2016-05-03 06:32:02</column>
+        </table>
+        <table name="books">
+            <column name="id">8</column>
+            <column name="book_title">Abdulrahman Book1</column>
+            <column name="book_author">Abdulrahman Book1</column>
+            <column name="book_owner">Abdulrahman</column>
+            <column name="library_name">Abdulrahman</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 08:04:10</column>
+            <column name="updated_at">2016-05-03 08:04:10</column>
+        </table>
+        <table name="books">
+            <column name="id">9</column>
+            <column name="book_title">Abdulrahman Book2</column>
+            <column name="book_author">Abdulrahman Book2</column>
+            <column name="book_owner">Abdulrahman</column>
+            <column name="library_name">Abdulrahman</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 08:04:34</column>
+            <column name="updated_at">2016-05-03 08:04:34</column>
+        </table>
+        <table name="books">
+            <column name="id">10</column>
+            <column name="book_title">Abdulrahman Book3</column>
+            <column name="book_author">Abdulrahman Book3</column>
+            <column name="book_owner">Abdulrahman</column>
+            <column name="library_name">Abdulrahman</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 08:04:41</column>
+            <column name="updated_at">2016-05-03 08:04:41</column>
+        </table>
+        <table name="books">
+            <column name="id">11</column>
+            <column name="book_title">Ali Book1</column>
+            <column name="book_author">Ali Book1</column>
+            <column name="book_owner">Ali</column>
+            <column name="library_name">Ali Library</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 08:06:01</column>
+            <column name="updated_at">2016-05-03 08:06:01</column>
+        </table>
+        <table name="books">
+            <column name="id">12</column>
+            <column name="book_title">Ali Book2</column>
+            <column name="book_author">Ali Book2</column>
+            <column name="book_owner">Ali</column>
+            <column name="library_name">Ali Library</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 08:06:08</column>
+            <column name="updated_at">2016-05-03 08:06:08</column>
+        </table>
+        <table name="books">
+            <column name="id">13</column>
+            <column name="book_title">Ali Book3</column>
+            <column name="book_author">Ali Book3</column>
+            <column name="book_owner">Ali</column>
+            <column name="library_name">Ali Library</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-03 08:06:15</column>
+            <column name="updated_at">2016-05-03 08:06:15</column>
+        </table>
+        <table name="books">
+            <column name="id">14</column>
+            <column name="book_title">Book3</column>
+            <column name="book_author">Book3</column>
+            <column name="book_owner">Abdulrahman</column>
+            <column name="library_name">Abdulrahman</column>
+            <column name="borrow">0</column>
+            <column name="created_at">2016-05-04 06:58:44</column>
+            <column name="updated_at">2016-05-04 06:58:44</column>
+        </table>
+        <!-- Table libraries -->
+        <table name="libraries">
+            <column name="id">9</column>
+            <column name="name">Nasser Library 1</column>
+            <column name="owner_username">Nasser</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 06:31:23</column>
+            <column name="updated_at">2016-05-03 06:31:23</column>
+        </table>
+        <table name="libraries">
+            <column name="id">10</column>
+            <column name="name">Nasser Library 2</column>
+            <column name="owner_username">Nasser</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 06:31:28</column>
+            <column name="updated_at">2016-05-03 06:31:28</column>
+        </table>
+        <table name="libraries">
+            <column name="id">11</column>
+            <column name="name">Nasser Library 3</column>
+            <column name="owner_username">Nasser</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 06:31:32</column>
+            <column name="updated_at">2016-05-03 06:31:32</column>
+        </table>
+        <table name="libraries">
+            <column name="id">12</column>
+            <column name="name">Abdulrahman Library1</column>
+            <column name="owner_username">Abdulrahman</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 08:03:25</column>
+            <column name="updated_at">2016-05-04 06:58:27</column>
+        </table>
+        <table name="libraries">
+            <column name="id">13</column>
+            <column name="name">Abdulrahman Library2</column>
+            <column name="owner_username">Abdulrahman</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 08:03:30</column>
+            <column name="updated_at">2016-05-03 08:03:30</column>
+        </table>
+        <table name="libraries">
+            <column name="id">14</column>
+            <column name="name">Abdulrahman Library3</column>
+            <column name="owner_username">Abdulrahman</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 08:04:23</column>
+            <column name="updated_at">2016-05-03 08:04:23</column>
+        </table>
+        <table name="libraries">
+            <column name="id">15</column>
+            <column name="name">Ali Library1</column>
+            <column name="owner_username">Ali</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 08:05:39</column>
+            <column name="updated_at">2016-05-03 08:05:39</column>
+        </table>
+        <table name="libraries">
+            <column name="id">16</column>
+            <column name="name">Ali Library2</column>
+            <column name="owner_username">Ali</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 08:05:43</column>
+            <column name="updated_at">2016-05-03 08:05:43</column>
+        </table>
+        <table name="libraries">
+            <column name="id">17</column>
+            <column name="name">Ali Library3</column>
+            <column name="owner_username">Ali</column>
+            <column name="request">0</column>
+            <column name="created_at">2016-05-03 08:05:48</column>
+            <column name="updated_at">2016-05-03 08:05:48</column>
+        </table>
+        <!-- Table memberships -->
+        <!-- Table migrations -->
+        <table name="migrations">
+            <column name="migration">2014_10_12_000000_create_users_table</column>
+            <column name="batch">1</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2014_10_12_100000_create_password_resets_table</column>
+            <column name="batch">1</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2016_03_18_115204_create_books_table</column>
+            <column name="batch">1</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2014_10_12_000000_create_users_table</column>
+            <column name="batch">1</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2014_10_12_100000_create_password_resets_table</column>
+            <column name="batch">1</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2016_03_18_115204_create_books_table</column>
+            <column name="batch">1</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2016_03_30_064906_create_library_table</column>
+            <column name="batch">2</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2016_04_05_213438_create_books_table</column>
+            <column name="batch">2</column>
+        </table>
+        <table name="migrations">
+            <column name="migration">2016_04_30_134419_create_memberships_table</column>
+            <column name="batch">3</column>
+        </table>
+        <!-- Table password_resets -->
+        <table name="password_resets">
+            <column name="email">sa.alsahli@gmail.com</column>
+            <column name="token">dacc917a950191f5dac9cbd70f2b65e1ebb9b0e1d500b3e1ff379669090c9bc3</column>
+            <column name="created_at">2016-03-22 11:02:37</column>
+        </table>
+        <table name="password_resets">
+            <column name="email">sa.alsahli@gmail.com</column>
+            <column name="token">dacc917a950191f5dac9cbd70f2b65e1ebb9b0e1d500b3e1ff379669090c9bc3</column>
+            <column name="created_at">2016-03-22 11:02:37</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="id">7</column>
+            <column name="name">saad</column>
+            <column name="email">asd@dsa.com</column>
+            <column name="password">$2y$10$QHukfZeqwOiMnXGyFukOf.DcAvBCx.1dq5h5VzxdYPlDwnmQtVYRy</column>
+            <column name="username">alsahli</column>
+            <column name="date">0000-00-00</column>
+            <column name="gender">MALE</column>
+            <column name="country">Azerbaijan</column>
+            <column name="city">asd</column>
+            <column name="phone">0556161288</column>
+            <column name="remember_token">hvUda35TUoTnq8VZe9krXvrdyTEmuhGGnGI5XfqeTc2i5yBAYtH7bmkUPkdQ</column>
+            <column name="created_at">2016-03-26 18:04:24</column>
+            <column name="updated_at">2016-04-05 22:21:25</column>
+        </table>
+        <table name="users">
+            <column name="id">8</column>
+            <column name="name">Abdulrahman</column>
+            <column name="email">a@a.com</column>
+            <column name="password">$2y$10$GpI6oCpSCzu9Fn3bIFY4r.J/AzsuXl1kAmo1RfGW2WmHm0ROnyjb2</column>
+            <column name="username">Abdulrahman</column>
+            <column name="date">0000-00-00</column>
+            <column name="gender">MALE</column>
+            <column name="country">Saudi Arabia</column>
+            <column name="city">rear</column>
+            <column name="phone">89583258925</column>
+            <column name="remember_token">0DrTfiaBWIxVoV0pyhdmzsYuE6PNeSmg54wZnOuNjvgDdy1Ps4eQnFnSQt69</column>
+            <column name="created_at">2016-03-29 18:22:37</column>
+            <column name="updated_at">2016-05-04 07:19:46</column>
+        </table>
+        <table name="users">
+            <column name="id">9</column>
+            <column name="name">saad</column>
+            <column name="email">asdasd@asd.com</column>
+            <column name="password">$2y$10$c46Fvxubnyuwf5vkpOxT6OU9SarFs.Lkt2PX71/hVxxS7WtjrtC52</column>
+            <column name="username">asddsa</column>
+            <column name="date">2016-03-18</column>
+            <column name="gender">MALE</column>
+            <column name="country">Azerbaijan</column>
+            <column name="city">asdsada</column>
+            <column name="phone">1232132121</column>
+            <column name="remember_token">Ojk29p5HTRueDxXj2rC6WXGpMFOxIQJPenyclZPl1grwYXl9XDxsw4vjYoEU</column>
+            <column name="created_at">2016-03-30 06:54:01</column>
+            <column name="updated_at">2016-03-30 07:07:11</column>
+        </table>
+        <table name="users">
+            <column name="id">10</column>
+            <column name="name">Saad</column>
+            <column name="email">qwe@gmail.com</column>
+            <column name="password">$2y$10$yzJ4iNV8yY9z6EPEfF5zW.0DiYKBIMLIBXDIT.haNl.bGfNucEK6e</column>
+            <column name="username">qwe</column>
+            <column name="date">2016-03-30</column>
+            <column name="gender">MALE</column>
+            <column name="country">Armenia</column>
+            <column name="city">asddsa</column>
+            <column name="phone">0556161288</column>
+            <column name="remember_token">kVJTTYJHgda7QNNFSHHjeYO929UMsCSsv47WOrKefOGn6WcRb2cbwa8ahOnl</column>
+            <column name="created_at">2016-03-30 07:26:11</column>
+            <column name="updated_at">2016-03-30 07:26:33</column>
+        </table>
+        <table name="users">
+            <column name="id">11</column>
+            <column name="name">hassan</column>
+            <column name="email">h@h.com</column>
+            <column name="password">$2y$10$EkLbL9b3tu7014XH4aVxJOhvm2DP2r8rLFRColnkbzHC/.8QdCbLS</column>
+            <column name="username">h.alshehri</column>
+            <column name="date">1993-03-30</column>
+            <column name="gender">MALE</column>
+            <column name="country">Saudi Arabia</column>
+            <column name="city">riyadh</column>
+            <column name="phone">0555555555</column>
+            <column name="remember_token">kgRZKIMWvjv40mtd0SR5a59tZnrwzncl9hbdHLTFM1DXNOm6KH0XAhRosKGO</column>
+            <column name="created_at">2016-03-30 07:27:21</column>
+            <column name="updated_at">2016-03-30 07:27:50</column>
+        </table>
+        <table name="users">
+            <column name="id">12</column>
+            <column name="name">Ali</column>
+            <column name="email">b@b.com</column>
+            <column name="password">$2y$10$1xsIouoPZKKQXNtxxJ7/HeIIH.DZB8trnZiErJ6ql07Ah5TmLRlui</column>
+            <column name="username">Ali</column>
+            <column name="date">0000-00-00</column>
+            <column name="gender">MALE</column>
+            <column name="country">Saudi Arabia</column>
+            <column name="city">fdsa</column>
+            <column name="phone">5823589258</column>
+            <column name="remember_token">RWEsVSnFZ34F0dMFxbiY42e87hKuRkLI6xXGHHqv3BTHV8IkqkIUE0HC4Ig4</column>
+            <column name="created_at">2016-04-15 11:16:24</column>
+            <column name="updated_at">2016-05-03 22:56:07</column>
+        </table>
+        <table name="users">
+            <column name="id">13</column>
+            <column name="name">Nasser</column>
+            <column name="email">c@c.com</column>
+            <column name="password">$2y$10$3I5Wazzl.pfkp.ENz9VoTe2yzlXUDjmUo/kNMpaVwTs6OgJun4AlG</column>
+            <column name="username">Nasser</column>
+            <column name="date">0000-00-00</column>
+            <column name="gender">MALE</column>
+            <column name="country">Afganistan</column>
+            <column name="city">vdgdfgdgsddsg</column>
+            <column name="phone">554355523523</column>
+            <column name="remember_token">79N9KBmtRuDpWLjiwll67SYFnMbCLqCq9fdDnLZUEHh8DKv8X0fIaR0OXwez</column>
+            <column name="created_at">2016-05-03 04:51:58</column>
+            <column name="updated_at">2016-05-04 07:20:07</column>
+        </table>
+    </database>
+</pma_xml_export>
